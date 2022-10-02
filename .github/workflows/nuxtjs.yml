@@ -1,28 +1,22 @@
-name: Deploy Website
-on: 
-    push:
-     branches:
+name: Deploy Site on push
+on:
+  push:
+    branches:
       - master
-     name: 🚀 Deploy website on push
-     jobs:
-        web-deploy:
-          name: 🎉 Deploy
-          runs-on: ubuntu-latest
-     steps:
-    - name: 🚚 Get latest code
-          uses: actions/checkout@v2
 
-    - name: Use Node.js 14
-         uses: actions/setup-node@v2
-      with:
-         node-version: '14'
-  
-    - name: 🔨 Build Project
-      run: |
-        npm install
-        npm run generate    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Deploying to surge
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install surge and fire deployment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 8
+      - run: npm install -g surge
+      - run: npm install
+      - run: npm run generate
       with:
        server: ${{ secrets.FTP_SERVER }}
        username: ${{ secrets.FTP_USERNAME }}
