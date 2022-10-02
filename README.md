@@ -4,7 +4,7 @@ A simple portfolio starter theme built with Nuxt.js and Tailwind CSS. This is th
 
 ![Nuxtjs-TailwindCSS-Portfolio](https://user-images.githubusercontent.com/16396664/140901794-14c1db27-99b9-46d4-a954-4bb37c32ead4.JPG)
 
-## Demo URL
+### Demo URL
 
 [https://nuxtjs-tailwindcss-portfolio.netlify.com](https://nuxtjs-tailwindcss-portfolio.netlify.com)
 
