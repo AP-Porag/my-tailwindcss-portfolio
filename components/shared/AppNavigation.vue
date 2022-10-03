@@ -1,15 +1,8 @@
-<script>
-export default {
-  props: ["isOpen", "showModal", "modal", "categories"],
-};
-</script>
-
 <template>
   <!-- App header navigation links -->
   <div
     :class="isOpen ? 'block' : 'hidden'"
     class="
-      font-general-regular
       m-0
       sm:ml-4
       mt-5
@@ -23,28 +16,14 @@ export default {
     "
   >
     <NuxtLink
-      to="/projects"
+      :to="menu.route"
       class="
         block
-        text-left text-lg text-primary-dark
-        dark:text-ternary-light
-        hover:text-secondary-dark
-        dark:hover:text-secondary-light
-        sm:mx-4
-        mb-2
-        sm:py-2
-      "
-      aria-label="Projects"
-      >Projects</NuxtLink
-    >
-    <NuxtLink
-      to="/about"
-      class="
-        block
-        text-left text-lg text-primary-dark
-        dark:text-ternary-light
-        hover:text-secondary-dark
-        dark:hover:text-secondary-light
+        text-left
+        text-lg
+        text-gray-500
+        font-medium
+        dark:text-gray-500
         sm:mx-4
         mb-2
         sm:py-2
@@ -52,31 +31,84 @@ export default {
         pt-3
         sm:pt-2 sm:border-t-0
         border-primary-light
+        hover:text-blue-dark
         dark:border-secondary-dark
+        capitalize
       "
-      aria-label="About Me"
-      >About Me</NuxtLink
-    >
-    <NuxtLink
-      to="/contact"
-      class="
-        block
-        text-left text-lg text-primary-dark
-        dark:text-ternary-light
-        hover:text-secondary-dark
-        dark:hover:text-secondary-light
-        sm:mx-4
-        mb-2
-        sm:py-2
-        border-t-2
-        pt-3
-        sm:pt-2 sm:border-t-0
-        border-primary-light
-        dark:border-secondary-dark
-      "
-      aria-label="Contact"
-      >Contact</NuxtLink
-    >
+      :aria-label="menu.area"
+      v-for="menu in menus" :key="menu.id"
+    ><span class="link link-underline link-underline-black"> {{menu.name}}</span>
+    </NuxtLink>
+<!--    <NuxtLink-->
+<!--      to="/about"-->
+<!--      class="-->
+<!--        block-->
+<!--        text-left text-lg text-primary-dark-->
+<!--        dark:text-ternary-light-->
+<!--        hover:text-secondary-dark-->
+<!--        dark:hover:text-secondary-light-->
+<!--        sm:mx-4-->
+<!--        mb-2-->
+<!--        sm:py-2-->
+<!--        border-t-2-->
+<!--        pt-3-->
+<!--        sm:pt-2 sm:border-t-0-->
+<!--        border-primary-light-->
+<!--        dark:border-secondary-dark-->
+<!--      "-->
+<!--      aria-label="About Me"-->
+<!--    >About</NuxtLink-->
+<!--    >-->
+<!--    <NuxtLink-->
+<!--      to="/service"-->
+<!--      class="-->
+<!--        block-->
+<!--        text-left text-lg text-primary-dark-->
+<!--        dark:text-ternary-light-->
+<!--        hover:text-secondary-dark-->
+<!--        dark:hover:text-secondary-light-->
+<!--        sm:mx-4-->
+<!--        mb-2-->
+<!--        sm:py-2-->
+<!--      "-->
+<!--      aria-label="Projects"-->
+<!--    >Service</NuxtLink-->
+<!--    >-->
+<!--    <NuxtLink-->
+<!--      to="/projects"-->
+<!--      class="-->
+<!--        block-->
+<!--        text-left text-lg text-primary-dark-->
+<!--        dark:text-ternary-light-->
+<!--        hover:text-secondary-dark-->
+<!--        dark:hover:text-secondary-light-->
+<!--        sm:mx-4-->
+<!--        mb-2-->
+<!--        sm:py-2-->
+<!--      "-->
+<!--      aria-label="Projects"-->
+<!--      >Projects</NuxtLink-->
+<!--    >-->
+<!--    <NuxtLink-->
+<!--      to="/contact"-->
+<!--      class="-->
+<!--        block-->
+<!--        text-left text-lg text-primary-dark-->
+<!--        dark:text-ternary-light-->
+<!--        hover:text-secondary-dark-->
+<!--        dark:hover:text-secondary-light-->
+<!--        sm:mx-4-->
+<!--        mb-2-->
+<!--        sm:py-2-->
+<!--        border-t-2-->
+<!--        pt-3-->
+<!--        sm:pt-2 sm:border-t-0-->
+<!--        border-primary-light-->
+<!--        dark:border-secondary-dark-->
+<!--      "-->
+<!--      aria-label="Contact"-->
+<!--      >Contact</NuxtLink-->
+<!--    >-->
     <div
       class="
         font-general-regular
@@ -92,10 +124,13 @@ export default {
           sm:hidden
           block
           text-left text-md
-          bg-indigo-500
-          hover:bg-indigo-600
+          bg-gradient-to-r
+          from-blue-dark
+          to-blue-light
+          hover:to-blue-dark
+          hover:from-blue-light
           text-white
-          shadow-sm
+          shadow-xl
           rounded-md
           px-4
           py-2
@@ -110,9 +145,47 @@ export default {
   </div>
 </template>
 
+<script>
+export default {
+  props: ["isOpen", "showModal", "modal", "categories"],
+  data(){
+    return{
+      menus:[
+        {'id':'1','name':'home','route':'/','area':'Home'},
+        {'id':'2','name':'about','route':'/about','area':'About'},
+        {'id':'3','name':'services','route':'/services','area':'Services'},
+        {'id':'4','name':'projects','route':'/projects','area':'Projects'},
+        // {'id':'5','name':'articles','route':'/articles','area':'Articles'},
+        {'id':'6','name':'contact','route':'/contact','area':'Contact'},
+      ]
+    }
+  }
+};
+</script>
+
 <style>
-#nav .nuxt-link-exact-active,
-#nav .nuxt-link-active {
-  @apply text-indigo-700 dark:text-indigo-400;
+/*#nav .nuxt-link-exact-active,*/
+/*#nav .nuxt-link-active {*/
+/*  @apply text-blue-dark dark:text-blue-light;*/
+/*}*/
+#nav .nuxt-link-exact-active{
+  @apply text-blue-dark dark:text-blue-light;
+}
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .5s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#0E6FBC, #2CC3FC)
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%
 }
 </style>

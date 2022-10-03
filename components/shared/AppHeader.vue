@@ -59,19 +59,20 @@ export default {
         <!-- Header logos -->
         <div>
           <NuxtLink to="/">
-            <img
-              v-if="this.$colorMode.value == 'dark'"
-              src="~/static/logo-light.svg"
-              class="w-36"
-              alt="Light Logo"
-            />
+<!--            <img-->
+<!--              v-if="this.$colorMode.value == 'dark'"-->
+<!--              src="~/static/logo-light.svg"-->
+<!--              class="w-36"-->
+<!--              alt="Light Logo"-->
+<!--            />-->
 
-            <img
-              v-else
-              src="~/static/logo-dark.svg"
-              alt="Color Logo"
-              class="w-36"
-            />
+<!--            <img-->
+<!--              v-else-->
+<!--              src="~/static/logo-dark.svg"-->
+<!--              alt="Color Logo"-->
+<!--              class="w-36"-->
+<!--            />-->
+            <span class="font-sans cursor-pointer bg-gradient-to-r from-blue-dark to-blue-light bg-clip-text text-2xl uppercase text-transparent sm:block">Asraf</span>
           </NuxtLink>
         </div>
 
@@ -185,10 +186,13 @@ export default {
           <button
             class="
               text-md
-              bg-indigo-500
-              hover:bg-indigo-600
+              bg-gradient-to-r
+              from-blue-dark
+              to-blue-light
+              hover:to-blue-dark
+              hover:from-blue-light
               text-white
-              shadow-sm
+              shadow-xl
               rounded-md
               px-5
               py-2.5
