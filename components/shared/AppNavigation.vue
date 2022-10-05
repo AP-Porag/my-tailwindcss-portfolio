@@ -37,78 +37,8 @@
       "
       :aria-label="menu.area"
       v-for="menu in menus" :key="menu.id"
-    ><span class="link link-underline link-underline-black"> {{menu.name}}</span>
+    >{{menu.name}}<span class="link link-underline link-underline-black"></span>
     </NuxtLink>
-<!--    <NuxtLink-->
-<!--      to="/about"-->
-<!--      class="-->
-<!--        block-->
-<!--        text-left text-lg text-primary-dark-->
-<!--        dark:text-ternary-light-->
-<!--        hover:text-secondary-dark-->
-<!--        dark:hover:text-secondary-light-->
-<!--        sm:mx-4-->
-<!--        mb-2-->
-<!--        sm:py-2-->
-<!--        border-t-2-->
-<!--        pt-3-->
-<!--        sm:pt-2 sm:border-t-0-->
-<!--        border-primary-light-->
-<!--        dark:border-secondary-dark-->
-<!--      "-->
-<!--      aria-label="About Me"-->
-<!--    >About</NuxtLink-->
-<!--    >-->
-<!--    <NuxtLink-->
-<!--      to="/service"-->
-<!--      class="-->
-<!--        block-->
-<!--        text-left text-lg text-primary-dark-->
-<!--        dark:text-ternary-light-->
-<!--        hover:text-secondary-dark-->
-<!--        dark:hover:text-secondary-light-->
-<!--        sm:mx-4-->
-<!--        mb-2-->
-<!--        sm:py-2-->
-<!--      "-->
-<!--      aria-label="Projects"-->
-<!--    >Service</NuxtLink-->
-<!--    >-->
-<!--    <NuxtLink-->
-<!--      to="/projects"-->
-<!--      class="-->
-<!--        block-->
-<!--        text-left text-lg text-primary-dark-->
-<!--        dark:text-ternary-light-->
-<!--        hover:text-secondary-dark-->
-<!--        dark:hover:text-secondary-light-->
-<!--        sm:mx-4-->
-<!--        mb-2-->
-<!--        sm:py-2-->
-<!--      "-->
-<!--      aria-label="Projects"-->
-<!--      >Projects</NuxtLink-->
-<!--    >-->
-<!--    <NuxtLink-->
-<!--      to="/contact"-->
-<!--      class="-->
-<!--        block-->
-<!--        text-left text-lg text-primary-dark-->
-<!--        dark:text-ternary-light-->
-<!--        hover:text-secondary-dark-->
-<!--        dark:hover:text-secondary-light-->
-<!--        sm:mx-4-->
-<!--        mb-2-->
-<!--        sm:py-2-->
-<!--        border-t-2-->
-<!--        pt-3-->
-<!--        sm:pt-2 sm:border-t-0-->
-<!--        border-primary-light-->
-<!--        dark:border-secondary-dark-->
-<!--      "-->
-<!--      aria-label="Contact"-->
-<!--      >Contact</NuxtLink-->
-<!--    >-->
     <div
       class="
         font-general-regular
@@ -186,6 +116,6 @@ export default {
 
 .link-underline:hover {
   background-size: 100% 3px;
-  background-position: 0 100%
+  background-position: 0 100%;
 }
 </style>

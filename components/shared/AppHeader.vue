@@ -42,7 +42,7 @@ export default {
 </script>
 
 <template>
-  <nav id="nav" class="sm:container sm:mx-auto">
+  <nav id="nav" class="sm:container sm:mx-auto sticky top-0 bg-white dark:bg-primary-dark">
     <!-- Header -->
     <div
       class="
@@ -59,19 +59,6 @@ export default {
         <!-- Header logos -->
         <div>
           <NuxtLink to="/">
-<!--            <img-->
-<!--              v-if="this.$colorMode.value == 'dark'"-->
-<!--              src="~/static/logo-light.svg"-->
-<!--              class="w-36"-->
-<!--              alt="Light Logo"-->
-<!--            />-->
-
-<!--            <img-->
-<!--              v-else-->
-<!--              src="~/static/logo-dark.svg"-->
-<!--              alt="Color Logo"-->
-<!--              class="w-36"-->
-<!--            />-->
             <span class="font-sans cursor-pointer bg-gradient-to-r from-blue-dark to-blue-light bg-clip-text text-2xl uppercase text-transparent sm:block">Asraf</span>
           </NuxtLink>
         </div>
@@ -270,3 +257,8 @@ export default {
     />
   </nav>
 </template>
+<style>
+nav{
+  z-index: 9999999;
+}
+</style>
